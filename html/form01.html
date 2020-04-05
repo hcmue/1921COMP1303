@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>Basic Form</title>
+    </head>
+    <body>
+        <h2>GỬI Ý KIẾN FEEDBACK</h2>
+        <form name="frmGuiYKien" method="GET" action="abc.php">
+            Họ tên: <input name="hoten"> <br>
+            Mật khẩu: <input type="password" name="password"><br>
+            <input type="hidden" value="1233" name="mabimat">
+            <textarea rows="4"></textarea><br>
+            Quê quán:
+            <select name="quequan" multiple>
+                <optgroup label="Miền Nam">
+                    <option value="HCM">Hồ Chí Minh</option>
+                    <option value="CT">Cần Thơ</option>
+                </optgroup>
+                <option value="HN">Hà Nội</option>
+                <option value="NT">Nha Trang</option>
+            </select>
+            <br>
+            Ngoại ngữ:
+            <input type="checkbox" name="AV">Anh
+            <input type="checkbox" name="AV">Pháp
+            <input type="checkbox" name="AV">Nga
+            <input type="checkbox" name="AV">Hàn
+            <br>
+            Giới tính:
+            <input type="radio" value="0" name="GT">Nam
+            <input type="radio" value="1" name="GT">Nữ
+            <br>
+            Hình: <input type="file">
+            <br>
+            <input type="submit" value="Gửi">
+            <input type="reset" value="Nhập lại">
+            <input type="button" value="JS">
+            <br>
+            <button type="submit">Gửi</button>
+            <button type="reset">Nhập lại</button>
+        </form>
+    </body>
+</html>

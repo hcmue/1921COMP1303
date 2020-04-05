@@ -1,0 +1,102 @@
+<html>
+    <head>
+        <title>Đăng ký Thành viên</title>
+    </head>
+    <style>
+        #tieude{
+            text-align: center; color: blue;
+        }
+        table{
+            margin: 0 auto;/*lề ngoài*/
+        }
+        .mytextbox{
+            width: 400px; color: #FF0000;background-color: #00FFFF;
+            padding: 5px; /*lề trong*/
+        }
+        td{
+            border: 1px solid blue;
+        }
+        td:nth-child(odd){
+            text-align: right;
+        }
+    </style>
+    <body>
+        <h2>HCMUE - COMP1303</h2>
+        <h2 id="tieude">ĐĂNG KÝ THÀNH VIÊN CLB YÊU NHẠC</h2>
+        <form method="POST" enctype="multipart/form-data">
+            <table>
+                <tr>
+                    <td>Họ tên</td>
+                    <td>
+                        <input class="mytextbox" type="text" name="HoTen" required maxlength="50" placeholder="Nhập họ tên" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Tên đăng nhập</td>
+                    <td>
+                        <input class="mytextbox" type="text" name="TenDangNhap" required maxlength="20" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Mật khẩu</td>
+                    <td>
+                        <input class="mytextbox" type="password" name="MatKhau" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Nhập lại mật khẩu</td>
+                    <td>
+                        <input class="mytextbox" type="password" name="NhapLaiMatKhau" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Giới tính</td>
+                    <td>
+                        <input type="radio" name="GioiTinh" value="0" />Nam
+                        <input type="radio" name="GioiTinh" value="1" />Nữ
+                    </td>
+                </tr>
+                <tr>
+                    <td>Ngoại ngữ</td>
+                    <td>
+                        <input type="checkbox" name="NgoaiNgu" value="AV" />Anh văn
+                        <input type="checkbox" name="NgoaiNgu" value="PV" />Pháp văn
+                        <input type="checkbox" name="NgoaiNgu" value="TN" />Nga văn
+                        <input type="checkbox" name="NgoaiNgu" value="HV" />Hán văn
+                        <input type="checkbox" name="NgoaiNgu" value="NV" />Nhật văn
+                    </td>
+                </tr>
+                <tr>
+                    <td>Nghề nghiệp</td>
+                    <td>
+                        <select name="NgheNghiep" multiple class="mytextbox">
+                            <option value="GV">Giáo viên</option>
+                            <option value="SV">Sinh viên</option>
+                            <option value="LTV">Lập trình viên</option>
+                            <option value="BS">Bác sỹ</option>
+                            <option value="CN">Công Nhân</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Hình</td>
+                    <td>
+                        <input type="file" name="Hinh" class="mytextbox" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Sở thích</td>
+                    <td>
+                        <textarea name="SoThich" rows="5" class="mytextbox"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center;">
+                        <button type="submit">Đăng ký</button>
+                        <button type="reset">Nhập lại</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
