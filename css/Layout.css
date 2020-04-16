@@ -1,0 +1,14 @@
+﻿#mainContainer {
+    border: 1px solid blue;
+    min-height: 650px;
+    padding: 0;
+}
+#myheader{
+    height:100px; background-color:yellow; 
+}
+#menunav{
+    background-color:black;
+}
+#main{
+    min-height:490px;
+}
