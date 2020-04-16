@@ -1,0 +1,25 @@
+<html>
+    <head>
+        
+    </head>
+    <body>
+        <!--<script src="../js/jquery-3.5.0.js"></script>-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <button id="btnred" type="button">Red</button>
+        <div>
+            Tên: <input id="txtTen" placeholder="Nhập họ tên"><br>
+            Năm sinh: <input id="txtNamSinh"><br>
+            <button id="btnXuLy" type="button">Xử lý</button><br>
+            <div id="txtKetQua"></div>
+        </div>
+        <script>
+            $("#btnred").click(function(){
+                $("body").css("background-color", "red");
+            });
+            $("#btnXuLy").click(function(){
+                var chuoi =  $("#txtTen").val() + " sinh năm " + $("#txtNamSinh").val();
+                $("#txtKetQua").html(chuoi);              
+            });
+        </script>
+    </body>
+</html>
