@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="../css/bootstrap/bootstrap.css" />
+    <script src="../js/jquery/jquery-3.5.0.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h3>Đăng ký Người dùng</h3>
+        <hr />
+        <div class="row form-group">
+            <label class="col-3 text-right" for="TenDN">
+                Tên đăng nhập
+            </label>
+            <div class="col-9">
+                <input id="TenDN" name="TenDN" class="form-control" />
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="col-3 text-right">
+                Mật khẩu
+            </label>
+            <div class="col-9">
+                <input type="password" id="MatKhau" class="form-control" />
+            </div>
+        </div>
+        <div class="row">
+            <label class="col-3 text-right">Nhập lại Mật khẩu</label>
+            <div class="col-9">
+                <input type="password" id="NhapLaiMatKhau" class="form-control" />
+            </div>
+        </div>
+        <hr />
+        <h5>Hãy nhập thông tin để lấy lại mật khẩu khi bị quên</h5>
+        <div class="row form-group">
+            <label class="col-3 text-right">Câu hỏi bí mật</label>
+            <div class="col-9">
+                <select id="CauHoiBiMat" class="form-control">
+                    <option>[Chọn câu hỏi]</option>
+                    <option value="cauhoi_1">Ngày sinh của bạn</option>
+                    <option value="cauhoi_2">Kỉ niệm đáng nhớ</option>
+                    <option value="cauhoi_3">Giáo viên chủ nhiệm đầu tiên của bạn</option>
+                </select>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="col-3 text-right">
+                Trả lời
+            </label>
+            <div class="col-9">
+                <input id="TraLoi" class="form-control" />
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="col-3 text-right">
+                Ngày sinh
+            </label>
+            <div class="col-9 form-inline">
+                <input type="number" id="Ngay" min="1" max="31" class="form-control" />
+                <select id="Thang" class="form-control ml-2 mr-2">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                </select>
+                <input type="number" id="Nam" min="1900" class="form-control" />
+            </div>
+        </div>
+        <hr />
+        <h5>Thông tin cá nhân</h5>
+        <div class="row form-group">
+            <label class="col-3 text-right">
+                Họ và chữ lót
+            </label>
+            <div class="col-9 form-inline">
+                <input id="HoLot" class="form-control mr-2" />
+                Tên:
+                <input id="Ten" class="form-control mr-2" />
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="col-3 text-right">
+                Giới tính
+            </label>
+            <div class="col-9">
+                <input type="radio" name="GioiTinh" value="0" />Nam
+                <input type="radio" name="GioiTinh" value="1" />Nữ
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="col-3 text-right">
+                Nghề nghiệp
+            </label>
+            <div class="col-9">
+                <select id="NgheNghiep" class="form-control">
+                    <option value="HSSV">Học sinh - Sinh viên</option>
+                    <option value="BS">Bác sỹ</option>
+                    <option value="KS">Kỹ sư</option>
+                    <option value="NB">Nhà báo</option>
+                </select>
+            </div>
+        </div>
+        <hr />
+        <h5>Sở thích</h5>
+        <div class="row form-group">
+            <div class="col">
+                <input type="checkbox" value="TT" />Thể thao
+
+            </div>            
+            <div class="col">
+                <input type="checkbox" value="DL" />Du lịch
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col">
+                <input type="checkbox" value="XP" />Xem phim
+            </div>
+        </div>
+        <hr />
+        <div class="form-group text-center">
+            <button class="btn btn-success">Đăng ký</button>
+        </div>
+    </div>
+</body>
+</html>

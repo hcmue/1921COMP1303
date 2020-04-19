@@ -1,0 +1,64 @@
+<html>
+    <head>
+        
+    </head>
+    <body>
+        <!--<script src="../js/jquery-3.5.0.js"></script>-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script>
+            $(function(){
+                //gắn sự kiện click cho btnCheck
+                $("#btnCheck").click(function(){
+                    //checked checkbox
+                    //$(":checkbox").attr("checked", "checked");
+                    //chọn theo attr
+                    //$(":checkbox[name='option']").prop("checked", true);
+                    //chọn theo id
+                    $("[id^='opt_']").prop("checked", true);
+
+                    $(":checkbox").attr("data-value", "A");
+                });
+                
+                //gắn sự kiện click cho btnUnCheck
+                $("#btnUnCheck").click(function(){
+                    //$(":checkbox").removeAttr("checked");
+                    $(":checkbox").prop("checked", false);
+
+                    $(":checkbox").attr("data-value", "");
+                });
+
+                //gắn sự kiện click cho Get value
+                $("#btnXuLyChon").click(function(){
+                    var chuoi = "";
+                    var mang = new Array();
+                    $("[id^='opt_']:checked").each(function(index, element){
+                        chuoi += element.value + ", ";
+                        mang.push(element.value);
+                    });
+                    
+                    $("#ketqua").html(mang.join(", "));
+                });
+
+
+            });//end document.ready
+        </script>
+        <form name="myForm">
+            <button type="button" id="btnCheck">Check</button>
+            <button type="button" id="btnUnCheck">Uncheck</button>
+            <button type="button" id="btnXuLyChon">Get value</button>
+            <br />
+            <fieldset>
+                <input type="checkbox" name="option" id="opt_1" value="Apples">Apples<br />
+                <input type="checkbox" name="option" id="opt_2" value="Oranges">Oranges<br />
+                <input type="checkbox" name="option" id="opt_3" value="Bananas">Bananas<br />
+                <input type="checkbox" name="option" id="opt_4" value="Melons">Melons
+            </fieldset>
+            <div id="ketqua"></div>
+            <hr>
+            <fieldset>
+                <input type="checkbox" value="0">Nam<br>
+                <input type="checkbox" value="1">Nữ
+            </fieldset>
+        </form>            
+    </body>
+</html>
