@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Menu 2 cấp</title>
+    <link rel="stylesheet" href="../css/bootstrap/bootstrap.css" />
+    <script src="../js/jquery/jquery-3.5.0.js"></script>
+    <style>
+        .menu_nhom > a {
+            display: block;
+            color:white;
+            background-color:black;
+            border-bottom: 1px dotted white;
+        }
+        .menu_nhom > a:hover{
+            text-decoration:none;
+            font-weight: bolder;
+        }
+        #menu{
+            background-color:lightgoldenrodyellow;
+            width:200px;
+        }
+        .menu_theloai {
+            border: 1px solid red;
+            color: blue;
+            font-weight: bolder;
+            padding: 5px;
+            text-align: center;
+            text-transform: uppercase;
+            background-color: tomato;
+        }
+    </style>
+    <script>
+        $(function () {
+            $(".menu_theloai").click(function () {
+                $(this).next().toggle(1500);
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="menu">
+        <div class="menu_theloai">Đời Sống</div>
+        <div class="menu_nhom">
+            <a href='?idLT=15'>Hoa Hậu</a>
+            <a href='?idLT=16'>Nghệ Sỹ</a>
+            <a href='?idLT=20'>Mỹ Thuật</a>
+        </div>
+        <div class="menu_theloai">Giải trí</div>
+        <div class="menu_nhom">
+            <a href='?idLT=17'>Âm Nhạc</a>
+            <a href='?idLT=18'>Thời Trang</a>
+            <a href='?idLT=19'>Điện Ảnh</a>
+        </div>
+
+        <div class="menu_theloai">Thể thao</div>
+        <div class="menu_nhom">
+            <a href='?idLT=21'>Bóng Đá</a>
+            <a href='?idLT=22'>Tennis</a>
+            <a href='?idLT=23'>Các môn khác</a>
+        </div>
+        <div class="menu_theloai">Du lịch</div>
+        <div class="menu_nhom">
+            <a href='?idLT=21'>Việt Nam</a>
+            <a href='?idLT=22'>Thế giới</a>
+            <a href='?idLT=23'>Cộng đồng</a>
+        </div>
+    </div>
+</body>
+</html>
