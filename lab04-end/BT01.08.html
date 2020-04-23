@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Đăng nhập</title>
+    <link rel="stylesheet" href="../css/bootstrap/bootstrap.css" />
+    <script src="../js/jquery/jquery-3.5.0.js"></script>
+    <style>
+        .loi {
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container w-50">
+        <h3 class="text-center">LOGIN</h3>
+        <div class="row form-group">
+            <label class="col text-right">
+                User name:
+            </label>
+            <div class="col">
+                <input id="txtUser" class="form-control" />
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="col text-right">
+                Password:
+            </label>
+            <div class="col">
+                <input id="txtPass" type="password" class="form-control" />
+            </div>
+        </div>
+        <div class="row form-group">
+            <button type="button" id="btnLogin" class="btn btn-info col-2 m-auto">Login</button>
+        </div>
+        <div id="result" class="text-danger text-center"></div>
+        <script>
+            function checkInputEmpty(element) {
+                if (element.val() == "") {
+                    element.addClass("loi");
+                    return true;
+                }
+                return false;
+            }
+            $(function () {
+                $("#btnLogin").click(function () {
+                    var user = $("#txtUser");
+                    var pass = $("#txtPass");
+
+                    if ($(this).html() == "Logout") {
+                        user.removeClass("d-none");
+                        pass.removeClass("d-none");
+                        user.val("");
+                        pass.val("");
+                        user.next().remove();
+                        pass.next().remove();
+                        $(this).html("Login");
+                        $("#result").html("");
+                        return;
+                    }
+
+                    //case 1: kiểm tra xem user/pass có rỗng
+                    //if (user.val() == "" || pass.val() == "") {
+                    //    $("#result").html("Vui lòng nhập thông tin");
+                    //    user.addClass("loi");
+                    //    pass.addClass("loi");
+                    //    return;
+                    //}
+                    if (checkInputEmpty(user) || checkInputEmpty(pass)) {
+                        $("#result").html("Vui lòng nhập thông tin");
+                        return;
+                    }
+
+                    user.removeClass("loi");
+                    pass.removeClass("loi");
+
+                    //case 2: Kiểm tra user/pass tối thiểu 4 kí tự
+                    if (user.val().length < 4 || pass.val().length < 4) {
+                        $("#result").html("Username/Password tối thiểu 4 kí tự");
+                        return;
+                    }
+
+
+                    $("#result").html("Đăng nhập thành công");
+                    $(this).html("Logout");
+                    //Ẩn textbox
+                    user.addClass("d-none");
+                    pass.addClass("d-none");
+                    user.after("<span>" + user.val() + "</span>");
+                    pass.after($("<span/>").html(pass.val()));
+                });
+            });
+        </script>
+    </div>
+</body>
+</html>
