@@ -7,17 +7,28 @@
     <link href="../css/bootstrap/bootstrap.css" rel="stylesheet" />
     <script src="../js/jquery/jquery-3.5.0.js"></script>
     <script src="../js/jQueryValidation1.19.1/jquery.validate.js"></script>
+    <script src="../js/jQueryValidation1.19.1/additional-methods.js"></script>
     <script src="../js/bootstrap/bootstrap.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/18.0.0/classic/ckeditor.js"></script>
+    <style>
+        label.error {
+            color: red;
+        }
+
+        .ck-editor__editable_inline {
+            min-height: 200px;
+        }
+    </style>
 </head>
 <body>
-    <form>
+    <form id="frmDangKy">
         <h2 class="text-center text-danger">
             Đăng ký Thành viên
         </h2>
         <div class="row m-1">
             <div class="col-4 col-md-3 text-right">Mã sinh viên</div>
             <div class="col-8 col-md-9">
-                <input name="MaSV" placeholder="Mã sinh viên" class="w-100" />
+                <input name="MaSV" placeholder="Mã sinh viên" class="form-control" />
             </div>
         </div>
         <div class="row m-1">
@@ -78,7 +89,7 @@
         <div class="row m-1">
             <div class="col-4 col-md-3 text-right">Thông tin thêm</div>
             <div class="col-8 col-md-9">
-                <textarea name="ThongTinThem" class="w-100"></textarea>
+                <textarea name="ThongTinThem" id="ThongTinThem" class="w-100" rows="5"></textarea>
             </div>
         </div>
         <div class="row m-1">
@@ -89,5 +100,37 @@
             </div>
         </div>
     </form>
+    <script>
+        $(function () {
+            $("#frmDangKy").validate({
+                rules: {
+                    MaSV: { required: true, rangelength: [13, 13] },
+                    NgaySinh: { date: true },
+                    Email: { email: true, required: true },
+                    XacNhanEmail: { equalTo: "[name='Email']" },
+                    SoTaiKhoan: { creditcard: true },
+                    Hinh: { extension: "jpg|png|bmp", required: true },
+                    Diem: { number: true, range: [0, 10] },
+                    HeSo: { digits: true, min: 1 },
+                    ThongTinThem: { maxlength: 255 }
+                },
+                messages: {
+                    Hinh: { extension: "Chỉ chấp nhận file jpg|png|bmp", required: "*" },
+                    NgaySinh: { date: "Chưa đúng định dạng" },
+                    MaSV: { required: "*", rangelength: "Đúng format MSSV, ví dụ 44.01.104.004" }
+                }
+            });
+        });
+    </script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#ThongTinThem'))
+            .then(editor => {
+                console.log(editor);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
 </body>
 </html>

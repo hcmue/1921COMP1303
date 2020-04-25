@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="../js/jquery/jquery-3.5.0.js"></script>
+    <script src="../js/jQueryValidation1.19.1/jquery.validate.js"></script>
+    <style>
+        label.error{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <a href="http://hcmue.edu.vn">DHSP</a>
+    <form id="frmForm">
+        Name: <input name="txtName" /><br />
+        Age: <input name="txtAge" /><br />
+        <button>Submit</button>
+    </form>
+    <script>
+        $(function () {
+            $("#frmForm").validate({
+                rules: {
+                    txtName: {
+                        required: true, minlength: 3
+                    }
+                },
+                messages: {
+                    txtName: {
+                        required: "*",
+                        minlength : "Tối thiểu 3 kí tự"
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
