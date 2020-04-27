@@ -4,23 +4,18 @@
 <head>
     <meta charset="utf-8" />
     <title>Đăng ký Thành viên</title>
-    <link href="../css/bootstrap/bootstrap.css" rel="stylesheet" />
-    <script src="../js/jquery/jquery-3.5.0.js"></script>
-    <script src="../js/jQueryValidation1.19.1/jquery.validate.js"></script>
-    <script src="../js/jQueryValidation1.19.1/additional-methods.js"></script>
-    <script src="../js/bootstrap/bootstrap.js"></script>
-    <script src="https://cdn.ckeditor.com/ckeditor5/18.0.0/classic/ckeditor.js"></script>
-    <style>
-        label.error {
-            color: red;
-        }
-
-        .ck-editor__editable_inline {
-            min-height: 200px;
-        }
-    </style>
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/additional-methods.js"></script>
+    
 </head>
 <body>
+<?php
+    $mangaunhien = rand(1000, 9999);
+    //lưu trên server cho session này
+    session_start();
+    $_SESSION["mabaomat"] = $mangaunhien;
+?>
     <form id="frmDangKy">
         <h2 class="text-center text-danger">
             Đăng ký Thành viên
@@ -82,7 +77,9 @@
         <div class="row m-1">
             <div class="col-4 col-md-3 text-right">Mã bảo mật</div>
             <div class="col-8 col-md-9">
-                <span class="text-danger"><b>000</b></span>
+                <span class="text-danger"><b>
+                <?php echo $mangaunhien; ?>
+                </b></span>
                 <input name="MaBaoMat" placeholder="Mã bảo mật" class="w-25" />
             </div>
         </div>
@@ -120,7 +117,8 @@
                     Hinh: { extension: "jpg|png|bmp", required: true },
                     Diem: { number: true, range: [0, 10] },
                     HeSo: { digits: true, min: 1 },
-                    ThongTinThem: { maxlength: 255 }
+                    ThongTinThem: { maxlength: 255 },
+                    MaBaoMat : {remote: "KiemTraBaoMat.php"}
                 },
                 messages: {
                     Hinh: { extension: "Chỉ chấp nhận file jpg|png|bmp", required: "*" },
@@ -129,16 +127,6 @@
                 }
             });
         });
-    </script>
-    <script>
-        ClassicEditor
-            .create(document.querySelector('#ThongTinThem'))
-            .then(editor => {
-                console.log(editor);
-            })
-            .catch(error => {
-                console.error(error);
-            });
     </script>
 </body>
 </html>
