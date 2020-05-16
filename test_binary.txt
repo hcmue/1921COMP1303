@@ -1,0 +1,1 @@
+O:5:"Fruit":2:{s:4:"name";s:6:"Orange";s:5:"color";N;}
