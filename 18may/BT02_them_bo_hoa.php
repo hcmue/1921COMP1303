@@ -39,6 +39,7 @@ if(isset($_FILES["Hinh"]) && $_FILES["Hinh"]["error"] == 0)
 			<img src="hoa/{$_FILES["Hinh"]["name"]}" alt="{$tenhoa}" /><br>
 			<h3>{$tenhoa}</h3>
 			<h4>{$gia} đ</h4>
+			<a href="BT02_doc_bo_hoa.php">Xem danh sách Bó hoa</a>
 		</div>
 EOD;
 		echo $chuoi;
