@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -46,10 +46,15 @@ if(isset($_FILES["Hinh"]) && $_FILES["Hinh"]["error"] == 0)
 		<div>
 			<img src="./hoa/{$_FILES["Hinh"]["name"]}" alt="{$_REQUEST["TenBoHoa"]}" />
 			<h3>{$_REQUEST["TenBoHoa"]}</h3>
-			<h3>{$gia}</h3>
+			<h3>{$gia} đ</h3>
 		</div>
 EOD;
 		echo $chuoi;
+
+		//Ghi xuong file
+		$file = fopen("hoa_xuan.txt", "at");
+		fwrite($file, "/*{$_REQUEST["TenBoHoa"]}|{$_REQUEST["GiaBoHoa"]}|{$_FILES["Hinh"]["name"]}");
+		fclose($file);
 	}
 }
 else {
