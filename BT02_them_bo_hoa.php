@@ -48,6 +48,7 @@ if(isset($_FILES["Hinh"]) && $_FILES["Hinh"]["error"] == 0)
 			<h3>{$_REQUEST["TenBoHoa"]}</h3>
 			<h3>{$gia} đ</h3>
 		</div>
+		<a href="BT2_doc_bo_hoa.php">Xem danh sách hoa</a>
 EOD;
 		echo $chuoi;
 
