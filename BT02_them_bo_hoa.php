@@ -34,5 +34,27 @@
 		</tr>
 	</table>
 </form>
+<?php
+//print_r($_FILES["Hinh"]);
+if(isset($_FILES["Hinh"]) && $_FILES["Hinh"]["error"] == 0)
+{
+	//di chuyen file tu TM tmp vao thu muc /hoa
+	if(move_uploaded_file($_FILES["Hinh"]["tmp_name"], "./hoa/".$_FILES["Hinh"]["name"]))
+	{
+		$gia = number_format($_REQUEST["GiaBoHoa"]);
+		$chuoi = <<< EOD
+		<div>
+			<img src="./hoa/{$_FILES["Hinh"]["name"]}" alt="{$_REQUEST["TenBoHoa"]}" />
+			<h3>{$_REQUEST["TenBoHoa"]}</h3>
+			<h3>{$gia}</h3>
+		</div>
+EOD;
+		echo $chuoi;
+	}
+}
+else {
+	echo "Chua upload file";
+}
+?>
 </body>
 </html>
