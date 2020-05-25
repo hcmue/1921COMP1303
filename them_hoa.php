@@ -18,9 +18,16 @@
                     Loại hoa
                 </div>
                 <div class="col-9 form-group">
+<?php
+include_once("DataProvider.php");
+$ds_loai_hoa = DataProvider::ExecuteQuery("SELECT MaLoai, TenLoai FROm loaihoa");
+?>
                     <select name="LoaiHoa" class="form-control">
-                        <option value="HC">Hoa cưới</option>
-                        <option value="HSN">Hoa Sinh nhật</option>
+                        <?php
+                        while($loai = mysqli_fetch_array($ds_loai_hoa)){
+                            echo "<option value='{$loai['MaLoai']}'>{$loai['TenLoai']}</option>";
+                        }
+                        ?>
                     </select>
                 </div>
             </div>
