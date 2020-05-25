@@ -11,7 +11,7 @@
 </head>
 <body>
 <div class="container">
-        <form action="" method="post">
+        <form action="" method="post" enctype="multipart/form-data">
             <h2 class="text-center text-uppercase">Thêm bó HOa</h2>
             <div class="row">
                 <div class="col-3 text-right">
@@ -76,5 +76,19 @@ $ds_loai_hoa = DataProvider::ExecuteQuery("SELECT MaLoai, TenLoai FROm loaihoa")
             </div>
         </form>
     </div>
+
+
+<?php
+if($_FILES["Hinh"]["error"] == 0)
+{
+	if(move_uploaded_file($_FILES["Hinh"]["tmp_name"], "hoa/".$_FILES["Hinh"]["name"]))
+    {
+        $sql = "INSERT INTO hoa(`MaLoai`,`TenHoa`,`GiaBan`,`ThanhPhan`,`Hinh`) VALUES('{$_REQUEST['LoaiHoa']}', '{$_REQUEST['TenHoa']}', '{$_REQUEST['GiaBan']}', '{$_REQUEST['ThanhPhan']}', '{$_FILES["Hinh"]["name"]}')";
+        //echo $sql;
+        DataProvider::ExecuteQuery($sql);
+    }
+}
+?>
+
 </body>
 </html>
