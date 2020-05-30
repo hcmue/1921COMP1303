@@ -30,7 +30,7 @@ while($loai = mysqli_fetch_array($dsHoa))
 	{
 		$sql = $sql." WHERE MaLoai = ".$_REQUEST["LoaiHoa"];
 	}
-	echo $sql;
+	//echo $sql;
 	$result = DataProvider::ExecuteQuery($sql);
 	$i = 1;
 	while($row = mysqli_fetch_array($result))
