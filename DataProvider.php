@@ -3,7 +3,7 @@ class DataProvider
 {
 	public static function ExecuteQuery($sql)
 	{
-		$connection = mysqli_connect("localhost","root","", "qlbanhoa") or
+		$connection = mysqli_connect("localhost","root","", "qlbanhoat7") or
 			die ("couldn't connect to localhost");				
 		mysqli_query($connection, "set names 'utf8'");		
 		$result = mysqli_query($connection, $sql);		
