@@ -77,5 +77,16 @@ $ds_loai_hoa = DataProvider::ExecuteQuery("SELECT MaLoai, TenLoai FROm loaihoa")
         </form>
     </div>
 
+    <?php
+        if(@$_FILES["Hinh"]["error"] == 0)
+        {
+            if(@move_uploaded_file($_FILES["Hinh"]["tmp_name"], "hoa/".$_FILES["Hinh"]["name"]))
+            {
+                $sql = "INSERT INTO `hoa` (`MaHoa`, `MaLoai`, `TenHoa`, `GiaBan`, `ThanhPhan`, `Hinh`) VALUES (NULL, '{$_REQUEST['LoaiHoa']}', '{$_REQUEST['TenHoa']}', '{$_REQUEST['GiaBan']}', '{$_REQUEST['ThanhPhan']}', '{$_FILES['Hinh']['name']}');";
+                
+                DataProvider::ExecuteQuery($sql);
+			}
+		}
+    ?>
 </body>
 </html>
