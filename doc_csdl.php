@@ -4,15 +4,19 @@ $ds_loai_hoa = DataProvider::ExecuteQuery("SELECT MaLoai, TenLoai FROm loaihoa")
 $loai_hoa = @$_REQUEST["LoaiHoa"];
 ?>
 <form>
+Loại:
 <select name="LoaiHoa" class="form-control">
-	<option>---Chọn loại hoa---</option>
+	<option value="">---Chọn loại hoa---</option>
     <?php
     while($loai = mysqli_fetch_array($ds_loai_hoa)){
 		$selected = $loai_hoa == $loai["MaLoai"] ? "selected" : "";
         echo "<option value='{$loai['MaLoai']}' {$selected}>{$loai['TenLoai']}</option>";
     }
     ?>
-</select>
+</select><br>
+Tên hoa : <input name="TenHoa" placeholder="Nhập tên hoa cần tìm"><br>
+Giá từ: <input name="GiaTu" type="number" min="0" step="0.01" /> 
+đến <input name="GiaDen" type="number" min="0" step="0.01" /> 
 <button>Search</button>
 </form>
 <table border="1" cellspacing="0" cellpadding="5">
@@ -24,12 +28,21 @@ $loai_hoa = @$_REQUEST["LoaiHoa"];
 	<tr>
 	<?php
 	$query = "SELECT MaHoa, TenHoa, GiaBan, Hinh FROM hoa";
+	$query .= " WHERE TenHoa LIKE '%".@$_REQUEST['TenHoa']."%'";
 	if(isset($loai_hoa))
 	{
-		$query .= " WHERE MaLoai = $loai_hoa";
+		$query .= " AND MaLoai = $loai_hoa";
+	}
+	if(isset($_REQUEST["GiaTu"]))
+	{
+		$query .= " AND GiaBan >= ".@$_REQUEST["GiaTu"];
+	}
+	if(isset($_REQUEST["GiaDen"]))
+	{
+		$query .= " AND GiaBan <= ".@$_REQUEST["GiaDen"];
 	}
 	$query .= " ORDER BY GiaBan";
-	echo $query;
+	//echo $query;
 	$result = DataProvider::ExecuteQuery($query);
 	$stt = 1;
 	while($row = mysqli_fetch_array($result))
