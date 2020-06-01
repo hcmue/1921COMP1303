@@ -1,12 +1,7 @@
 <?php
-$link = mysqli_connect("localhost", "root", "", "qlbanhoa");
-//set bộ mã tiếng việt
-mysqli_query($link, "SET NAMES UTF8 ");
-
+include_once("DataProvider.php");
 $query = "SELECT * FROM hoa ORDER BY GiaBan";
-//echo $query;
 $result = mysqli_query($link, $query);
-
 mysqli_close($link);
 ?>
 
