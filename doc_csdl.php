@@ -5,9 +5,11 @@ $loai_hoa = @$_REQUEST["LoaiHoa"];
 ?>
 <form>
 <select name="LoaiHoa" class="form-control">
+	<option>---Chọn loại hoa---</option>
     <?php
     while($loai = mysqli_fetch_array($ds_loai_hoa)){
-        echo "<option value='{$loai['MaLoai']}'>{$loai['TenLoai']}</option>";
+		$selected = $loai_hoa == $loai["MaLoai"] ? "selected" : "";
+        echo "<option value='{$loai['MaLoai']}' {$selected}>{$loai['TenLoai']}</option>";
     }
     ?>
 </select>
@@ -21,7 +23,7 @@ $loai_hoa = @$_REQUEST["LoaiHoa"];
 		<th>Giá bán</th>
 	<tr>
 	<?php
-	$query = "SELECT * FROM hoa";
+	$query = "SELECT MaHoa, TenHoa, GiaBan, Hinh FROM hoa";
 	if(isset($loai_hoa))
 	{
 		$query .= " WHERE MaLoai = $loai_hoa";
