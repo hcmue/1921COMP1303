@@ -1,10 +1,18 @@
 <?php
 include_once("DataProvider.php");
-$query = "SELECT * FROM hoa ORDER BY GiaBan";
-$result = mysqli_query($link, $query);
-mysqli_close($link);
+$ds_loai_hoa = DataProvider::ExecuteQuery("SELECT MaLoai, TenLoai FROm loaihoa");
+$loai_hoa = @$_REQUEST["LoaiHoa"];
 ?>
-
+<form>
+<select name="LoaiHoa" class="form-control">
+    <?php
+    while($loai = mysqli_fetch_array($ds_loai_hoa)){
+        echo "<option value='{$loai['MaLoai']}'>{$loai['TenLoai']}</option>";
+    }
+    ?>
+</select>
+<button>Search</button>
+</form>
 <table border="1" cellspacing="0" cellpadding="5">
 	<tr>
 		<th>STT</th>
@@ -13,6 +21,14 @@ mysqli_close($link);
 		<th>Giá bán</th>
 	<tr>
 	<?php
+	$query = "SELECT * FROM hoa";
+	if(isset($loai_hoa))
+	{
+		$query .= " WHERE MaLoai = $loai_hoa";
+	}
+	$query .= " ORDER BY GiaBan";
+	echo $query;
+	$result = DataProvider::ExecuteQuery($query);
 	$stt = 1;
 	while($row = mysqli_fetch_array($result))
 	{
