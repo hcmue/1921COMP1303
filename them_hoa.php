@@ -19,8 +19,14 @@
                 </div>
                 <div class="col-9 form-group">
                     <select name="LoaiHoa" class="form-control">
-                        <option value="HC">Hoa cưới</option>
-						<option value="HSN">Hoa sinh nhật</option>
+                        <?php
+	include_once("DataProvider.php");
+	$dsLoaiHoa = DataProvider::ExecuteQuery("SELECT MaLoai, TenLoai FROM loaihoa");
+	while($loai = mysqli_fetch_array($dsLoaiHoa))
+	{
+		echo "<option value='{$loai['MaLoai']}'>{$loai['TenLoai']}</option>";
+	}
+?>
                     </select>
                 </div>
             </div>
@@ -69,6 +75,16 @@
             </div>
         </form>
     </div>
-
+    <?php
+    if($_FILES['Hinh']['error'] == 0)
+    {
+        if(move_uploaded_file($_FILES['Hinh']["tmp_name"], "hoa/".$_FILES['Hinh']["name"]))
+        {
+            $sql = "INSERT INTO `hoa` (`MaHoa`, `MaLoai`, `TenHoa`, `GiaBan`, `ThanhPhan`, `Hinh`) VALUES (NULL, '{$_REQUEST['LoaiHoa']}', '{$_REQUEST['TenHoa']}', '{$_REQUEST['GiaBan']}', '{$_REQUEST['ThanhPhan']}', '{$_FILES['Hinh']["name"]}');";
+            echo $sql;
+            DataProvider::ExecuteQuery($sql);
+		}
+	}
+    ?>
 </body>
 </html>
