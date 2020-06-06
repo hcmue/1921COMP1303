@@ -1,0 +1,17 @@
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<div id="dongho"></div>
+<script>
+    function LayGioServer() {
+        $.ajax({
+            url: "LayGio.php",
+            success: function (data) {
+                console.log(data);
+                $("#dongho").html(data);
+            }
+        });
+    }
+    $(function () {
+        LayGioServer();
+        setInterval(LayGioServer, 1000);
+    });
+</script>
