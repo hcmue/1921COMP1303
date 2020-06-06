@@ -4,8 +4,9 @@ class DataProvider
 	public static function ExecuteQuery($sql)
 	{
 		try{
-			$dn = "mysql:host=localhost;dbname=qlbanhoat7";
+			$dsn = "mysql:host=localhost;dbname=qlbanhoat7";
 			$dbh = new PDO($dsn, "root", "");
+			$dbh->query("SET NAMES utf8");
 			return $dbh->query($sql);
 		}
 		catch(Exception $ex)
