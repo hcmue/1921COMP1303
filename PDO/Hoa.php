@@ -15,6 +15,11 @@
             },
             success: function(data){
                 $("#dsHoa").html(data);
+
+                //gắn sự click lên nút mua
+                $(".mua").click(function(){
+                    alert("Chọn mua: " + $(this).data("mahoa"));
+                });
             }
         });
     }    
