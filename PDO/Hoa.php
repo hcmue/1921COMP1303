@@ -18,7 +18,18 @@
 
                 //gắn sự click lên nút mua
                 $(".mua").click(function(){
-                    alert("Chọn mua: " + $(this).data("mahoa"));
+                    //alert("Chọn mua: " + $(this).data("mahoa"));
+                    $.ajax({
+                        url: "XLGioHang.php",
+                        data:{
+                            ma_sp: $(this).data("mahoa"),
+                            so_luong: 1,
+                            loai: "them"
+						},
+                        success: function(data){
+                            alert(data);              
+						}
+                    });
                 });
             }
         });
