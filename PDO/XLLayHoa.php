@@ -1,7 +1,7 @@
-﻿Loại hoa:
-<?php
+﻿<?php
 include_once('DataProvider.php');
-$sqlHoa = "SELECT MaHoa, TenHoa, GiaBan, Hinh FROM hoa ";
+$sqlHoa = "SELECT MaHoa, TenHoa, GiaBan, Hinh FROM hoa WHERE MaLoai = ".$_REQUEST['ma_loai_hoa'];
+//echo $sqlHoa;
 $dsHoa = DataProvider::ExecuteQuery($sqlHoa);
 while($row = $dsHoa->fetch())
 {
@@ -21,4 +21,3 @@ EOD;
 	echo $chuoi;
 }
 ?>
-<link href="Hoa.css" rel="stylesheet" />
