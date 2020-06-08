@@ -1,15 +1,15 @@
-<?php
+﻿<?php
 class DataProvider 
 {
 	public static function ExecuteQuery($sql)
 	{
 		try{
-			$dsn = "mysql:host=localhost;dbname=qlbanhoat2";
+			$dsn = "mysql:host=localhost;dbname=qlbanhoa";
 			$dbh = new PDO($dsn, "root", "");
 			$dbh->query("SET NAMES utf8");
 			$result = $dbh->query($sql);
 		}catch(Exception $ex){
-		
+			echo "Lỗi: ";
 		}
 		finally{
 			$dbh = null;
