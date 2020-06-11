@@ -1,6 +1,10 @@
 ﻿<?php
 include_once("DataProvider.php");
 $sql = "SELECT MaHoa, TenHoa, GiaBan, Hinh FROM hoa";
+if(isset($_REQUEST["ma_loai_hoa"]))
+{
+    $sql .= " WHERE MaLoai = ".$_REQUEST["ma_loai_hoa"];
+}
 $sql .= " ORDER BY GiaBan";
 //echo $sql;
 
