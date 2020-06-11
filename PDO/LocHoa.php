@@ -21,9 +21,14 @@ $(function(){
 			},
 			success: function(response){
 				$("#danh_sach_hoa").html(response);
+
+				$(".mua").click(function(){
+					alert("mua " + $(this).data("mahoa"));
+				});
 			}
 		});
 	}
+	layHoaTheoLoai();
 	//gắn sự kiện click thay đổi item trong dropdown
 	$("#LoaiHoa").change(function(){
 		layHoaTheoLoai();
