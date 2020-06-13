@@ -10,6 +10,10 @@
 </head>
 <body>
     <div class="container">
+    <div class="position-fixed fixed-top">
+        Giỏ hàng: <span id="tongTien" class="text-danger">0</span> đ
+    </div>
+    <br>
         <div>
         <?php
         include_once("DataProvider.php");
@@ -37,6 +41,21 @@ function layHoaTheoLoai(){
 		},
 		success: function(data){
 			$("#danh_sach_hoa").html(data);
+
+            $(".hh-mua").click(function(){
+                //alert("Mua " + $(this).data("mahoa"));
+                $.ajax({
+                    url: "XLGioHang.php",
+                    data:{ 
+                        "maHoa": $(this).data("mahoa"),
+                        "loaiXuLy": "them"
+                    },
+                    dataType: "json",
+                    success: function(data){
+                        $("#tongTien").html(data.TongTien);
+					}
+                });
+            });
 		},
 		error: function(){
 			alert("Lỗi xử lý");

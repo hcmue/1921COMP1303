@@ -29,6 +29,8 @@ while($row = $dsHoa->fetch())
      <img src="images/icon-new.png" class="hh-box-new" >
      <div class="hh-box-name">{$row['TenHoa']}</div>
      <div class="hh-box-gia">{$gia} đ</div>
+     <button class="btn btn-success hh-mua" 
+        data-mahoa="{$row['MaHoa']}" type="button">Mua</button>
  </div>
  <!--End Một hàng hóa-->
 EOD;

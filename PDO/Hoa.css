@@ -33,6 +33,11 @@
     left: 0px;
     top: 135px;
 }
+.hh-mua {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+}
 .hh-box-name {
     position: absolute;
     top: -32px;
