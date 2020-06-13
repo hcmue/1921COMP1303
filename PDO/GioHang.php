@@ -38,6 +38,7 @@ EOD;
 	}
 	?>
 </table>
+<a href="MuaHang.php">Đặt hàng</a>
 <script src="../js/jquery/jquery-3.5.0.js"></script>
 <script>
 $(function(){
