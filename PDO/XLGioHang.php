@@ -6,7 +6,10 @@ switch ($_REQUEST["loaiXuLy"]) {
 		Cart::InsertCart($_REQUEST["maHoa"]);
 		echo Cart::Display();
 		break;
-	
+	case 'xoa':
+		Cart::DeleteCart($_REQUEST["maHoa"]);
+		echo '{"success":true}';
+		break;
 	default:
 		# code...
 		break;
