@@ -2,7 +2,10 @@
 define('SO_LUONG_MOI_TRANG', 7);
 include_once("DataProvider.php");
 $sql = "SELECT MaHoa, TenHoa, GiaBan, Hinh FROM hoa";
-
+if(isset($_REQUEST["ma_loai_hoa"]))
+{
+    $sql .= " WHERE MaLoai = ".$_REQUEST["ma_loai_hoa"];
+}
 $trang = !isset($_REQUEST["p"]) ? 1 : $_REQUEST["p"];
 
 $sql .= " LIMIT ".(($trang - 1) * SO_LUONG_MOI_TRANG).", ".SO_LUONG_MOI_TRANG;
@@ -10,8 +13,6 @@ $dsHoa = DataProvider::ExecuteQuery($sql);
 $stt = 1;
 while($row = $dsHoa->fetch())
 {
-	//echo "<br>".$stt.". ".$hoa["TenHoa"];
-	//$stt++;
     $gia = number_format($row['GiaBan']);
 	$chuoi = <<< EOD
 <!--Một hàng hóa-->
