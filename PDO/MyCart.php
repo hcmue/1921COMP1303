@@ -1,12 +1,13 @@
 ﻿<?php
-session_start();
+//session_start();
 class Cart
 {
 	public static function InsertCart($masp, $soluong = 1)
 	{
 		//nếu đã có mã spham à $id trong giỏ hàng
 		if(isset($_SESSION["MyCart"][$masp]))
-			$_SESSION["MyCart"][$masp] = $soluong;
+			//$_SESSION["MyCart"][$masp] = $soluong;
+			$_SESSION["MyCart"][$masp]++;
 		else//nếu chưa có
 			$_SESSION["MyCart"][$masp] = 1;
 	}
@@ -33,7 +34,13 @@ class Cart
 			$row = $rs->fetch();
 			$sum += $SoLuong * $row['GiaBan'];
 		}
-		return "Số MH: ".count($_SESSION['MyCart']).", tổng tiền: $sum";
+		
+		//return "Số MH: ".count($_SESSION['MyCart']).", tổng tiền: $sum";
+		$result = array(
+			"SoMH" => count($_SESSION['MyCart']),
+			"TongTien" => $sum
+		);
+		return json_encode($result);
 	}
 }
 ?>
