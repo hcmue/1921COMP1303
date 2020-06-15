@@ -5,7 +5,10 @@
     <meta charset="utf-8" />
     <title></title>
     <link href="Hoa.css" rel="stylesheet" />
+    <link href="../css/bootstrap/bootstrap.css" rel="stylesheet" />
     <script src="../js/jquery/jquery-3.5.0.js"></script>
+    <script src="../js/bootstrap/bootstrap.js"></script>
+
     <script>
     function LayHoa(){
         $.ajax({
@@ -43,20 +46,29 @@
     </script>
 </head>
 <body>
+<div class="container">
     <?php
     include_once("DataProvider.php");
     $ds_loai_hoa = DataProvider::ExecuteQuery("SELECT MaLoai, TenLoai FROM loaihoa");
 ?>
-<select id="LoaiHoa" class="form-control">
-    <?php
-    while($loai = $ds_loai_hoa->fetch()){
-        echo "<option value='{$loai['MaLoai']}'>{$loai['TenLoai']}</option>";
-    }
-    ?>
-</select>
-<div id="dsHoa"></div>
+    <div class="row">
+        <label class="col-3">
+            Loại hoa: 
+        </label>
+        <div class="col-5">
+            <select id="LoaiHoa" class="form-control">
+                <?php
+                while($loai = $ds_loai_hoa->fetch()){
+                    echo "<option value='{$loai['MaLoai']}'>{$loai['TenLoai']}</option>";
+                }
+                ?>
+            </select>        
+        </div>
+    </div>
+    <div class="row" id="dsHoa"></div>
 <style>
 .hoa{width:80px; height: 100px;}
 </style>
+</div>
 </body>
 </html>
