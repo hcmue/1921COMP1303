@@ -1,4 +1,5 @@
-﻿<script src="../js/jquery/jquery-3.5.0.js"></script>
+﻿<?php session_start(); ?>
+<script src="../js/jquery/jquery-3.5.0.js"></script>
 <link href="Hoa.css" rel="stylesheet" />
 Loại hoa:
 <select id="LoaiHoa">
@@ -11,7 +12,14 @@ Loại hoa:
 	}
 ?>
 </select>
-<a href="GioHang.php">Giỏ hàng</a> <span id="tong_tien">0</span> đ
+<?php
+include_once("MyCart.php");
+$sum = json_decode(Cart::Display());
+?>
+<a href="GioHang.php">Giỏ hàng</a> 
+<span id="tong_tien">
+	<?php echo $sum->TongTien; ?>
+</span> đ
 <div id="danh_sach_hoa"></div>
 <script>
 $(function(){
@@ -25,7 +33,19 @@ $(function(){
 				$("#danh_sach_hoa").html(response);
 
 				$(".mua").click(function(){
-					alert("mua " + $(this).data("mahoa"));
+					$.ajax({
+						url: "XLGioHang.php",
+						data: {
+							"ma_hoa": $(this).data("mahoa"),
+							"hanh_dong": "them"
+						},
+						dataType: "json",
+						success: function(data){
+							console.log(data);
+							console.log(data.TongTien);
+							$("#tong_tien").html(data.TongTien);
+						}
+					});
 				});
 			}
 		});

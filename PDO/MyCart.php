@@ -25,15 +25,18 @@ class Cart
 	{
 		include_once("DataProvider.php");
 		$sum = 0;
-		foreach($_SESSION['MyCart'] as $MaHoa => $SoLuong)
-		{
-			$rs= DataProvider::ExecuteQuery("SELECT GiaBan FROM hoa WHERE MaHoa = $MaHoa");
-			$row = $rs->fetch();
-			$sum += $SoLuong * $row['GiaBan'];
+		$somh = 0;
+		if(isset($_SESSION['MyCart'])){
+			foreach($_SESSION['MyCart'] as $MaHoa => $SoLuong)
+			{
+				$rs= DataProvider::ExecuteQuery("SELECT GiaBan FROM hoa WHERE MaHoa = $MaHoa");
+				$row = $rs->fetch();
+				$sum += $SoLuong * $row['GiaBan'];
+			}
+			$somh = count($_SESSION['MyCart']);
 		}
-		//return "Số MH: ".count($_SESSION['MyCart']).", tổng tiền: $sum";
 		$result = array(
-			"SoMH" => count($_SESSION['MyCart']),
+			"SoMH" => $somh,
 			"TongTien" => $sum
 		);
 
