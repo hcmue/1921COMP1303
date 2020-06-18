@@ -29,4 +29,3 @@ EOD;
     echo $chuoi;
 }
 ?>
-<link href="Hoa.css" rel="stylesheet" />

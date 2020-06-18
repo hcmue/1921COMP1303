@@ -1,4 +1,5 @@
-﻿<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+﻿<script src="../js/jquery/jquery-3.5.0.js"></script>
+<link href="Hoa.css" rel="stylesheet" />
 Loại hoa:
 <select id="LoaiHoa">
 <?php
@@ -10,6 +11,7 @@ Loại hoa:
 	}
 ?>
 </select>
+<a href="GioHang.php">Giỏ hàng</a> <span id="tong_tien">0</span> đ
 <div id="danh_sach_hoa"></div>
 <script>
 $(function(){
