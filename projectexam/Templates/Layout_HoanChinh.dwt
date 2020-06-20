@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>Layout Template</title>
+<!-- TemplateEndEditable -->
+<style>
+*{margin:0;}
+#container{width:1000px; min-height:650px;
+	border:1px solid red; margin:0 auto;
+}
+#myheader{background-color:#FF0; height:100px; position:relative;}
+nav{background-color:black; height:30px; padding-top:10px;}
+ul{padding-left:5px;}
+ul li{display:inline-block;}
+ul li a{text-decoration:none; color:white; padding:5px;}
+ul li a:hover{background-color:#3C6; font-weight:bolder; border-radius:7px;}
+#menutrai{width:200px; float:left;
+background-color:#0FF; min-height:500px;}
+#noidung{width:800px; float:right;
+background-color:#FCF; min-height:500px;}
+#myfooter{	background-color: #C09;
+            color: #FFF;
+            height: 30px;
+            text-align: center;
+            clear: both;
+            margin: 5px 0px 0px 0px;
+            padding: 10px 0px 0px 0px;
+}
+
+#tieude{color:#FFF; background-color:#F00;
+font-size:x-large; font-weight:bolder; padding:5px;}
+#chitiet{text-align:justify; padding:15px 5px 5px 5px;}
+</style>
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+</head>
+
+<body>
+<div id="container">
+	<header id="myheader">
+    	<!--Icon Social Network-->
+        <div style="position:absolute; top:5px; right:5px;">
+            <img src="../images/facebook.png" width="32" height="32">
+            <img src="../images/google_plus.png" width="32" height="32">
+            <img src="../images/youtube.png" width="32" height="32">
+            <img src="../images/yahoo.png" width="32" height="32">
+        </div>
+        <!--End Social Network-->
+    </header>
+    <nav>
+        <div style="float:left;">
+        <ul>
+        	<li><a href="">Home</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="../Lienhe.html">Contact</a></li>
+            <li><a href="../SanPham.html">Products</a></li>
+            <li><a href="">FAQs</a></li>
+        </ul>
+        </div>
+        <div style="float:right;">
+        <!--Chèn icon ngôn ngữ-->
+	        <img src="../images/eng.gif" width="24" height="24">
+            <img src="../images/vi.gif" width="24" height="24">
+		<!--End icon ngôn ngữ-->
+        </div>
+    </nav>
+    
+    <!--Menu trái-->
+    <aside id="menutrai">
+    </aside>
+    <!--End Menu trái-->
+    
+    <!--Nội dung chính-->
+    <div id="noidung">
+        <div id="tieude"><!-- TemplateBeginEditable name="ertieude" -->Tiêu đề <!-- TemplateEndEditable --></div>
+        <div id="chitiet"><!-- TemplateBeginEditable name="erchitiet" -->Chi tiết<!-- TemplateEndEditable --></div>
+	</div>        
+    <!--End Nội dung chính-->
+    
+    <footer id="myfooter">
+    	Bản quyền thuộc về HIENLTH &reg;
+    </footer>
+</div><!-- end #container -->
+</body>
+</html>

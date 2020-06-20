@@ -1,0 +1,128 @@
+<!doctype html>
+<html><!-- InstanceBegin template="/Templates/Layout_HoanChinh.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta charset="utf-8">
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Danh sách Sản phẩm</title>
+<!-- InstanceEndEditable -->
+<style>
+*{margin:0;}
+#container{width:1000px; min-height:650px;
+	border:1px solid red; margin:0 auto;
+}
+#myheader{background-color:#FF0; height:100px; position:relative;}
+nav{background-color:black; height:30px; padding-top:10px;}
+ul{padding-left:5px;}
+ul li{display:inline-block;}
+ul li a{text-decoration:none; color:white; padding:5px;}
+ul li a:hover{background-color:#3C6; font-weight:bolder; border-radius:7px;}
+#menutrai{width:200px; float:left;
+background-color:#0FF; min-height:500px;}
+#noidung{width:800px; float:right;
+background-color:#FCF; min-height:500px;}
+#myfooter{	background-color: #C09;
+            color: #FFF;
+            height: 30px;
+            text-align: center;
+            clear: both;
+            margin: 5px 0px 0px 0px;
+            padding: 10px 0px 0px 0px;
+}
+
+#tieude{color:#FFF; background-color:#F00;
+font-size:x-large; font-weight:bolder; padding:5px;}
+#chitiet{text-align:justify; padding:15px 5px 5px 5px;}
+/*Nút TOP*/
+.back-to-top {
+            position: fixed;
+            bottom: 2em;
+            right: 0px;
+            display: none;
+}
+</style>
+<link rel="stylesheet" type="text/css" href="css/HangHoa.css">
+<script src="js/jquery-1.11.3.min.js"></script>
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+</head>
+
+<body>
+<div id="container">
+	<header id="myheader">
+    	<!--Icon Social Network-->
+        <div style="position:absolute; top:5px; right:5px;">
+            <img src="images/facebook.png" width="32" height="32">
+            <img src="images/google_plus.png" width="32" height="32">
+            <img src="images/youtube.png" width="32" height="32">
+            <img src="images/yahoo.png" width="32" height="32">
+        </div>
+        <!--End Social Network-->
+    </header>
+    <nav>
+        <div style="float:left;">
+        <ul>
+        	<li><a href="index.php">Home</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="">Contact</a></li>
+            <li><a href="?mod=Flower&act=DanhSach">Products</a></li>
+            <li><a href="">FAQs</a></li>
+        </ul>
+        </div>
+        <div style="float:right;">
+        <!--Chèn icon ngôn ngữ-->
+	        <img src="images/eng.gif" width="24" height="24">
+            <img src="images/vi.gif" width="24" height="24">
+		<!--End icon ngôn ngữ-->
+        </div>
+    </nav>
+    
+    <!--Menu trái-->
+    <aside id="menutrai">
+        <!--Giỏ hàng-->
+        <!--<a class="cart_anchor"></a>-->
+        <!--End Giỏ hàng-->
+    	<!-- About Me -->
+		<?php include_once("View/Cart/Cart.php"); ?>
+    	<!-- Category -->
+         <?php
+         	@include_once("Controller/Category/ShowCategories.php");
+         ?>
+    </aside>
+    <!--End Menu trái-->
+    
+    <!--Nội dung chính-->
+    <div id="noidung">
+        <div id="tieude"><!-- InstanceBeginEditable name="ertieude" -->Sản phẩm - Products<!-- InstanceEndEditable --></div>
+        <div id="chitiet"><!-- InstanceBeginEditable name="erchitiet" -->Danh sách Sản phẩm<!-- InstanceEndEditable --></div>
+	</div>        
+    <!--End Nội dung chính-->
+    
+    <footer id="myfooter">
+    	Bản quyền thuộc về HIENLTH &reg;
+    </footer>
+    <!--Nút Back to Top-->
+    <a href="#" class="back-to-top" title="Top">
+        <img src="images/to-top.png" />
+    </a>
+    <script>
+        $(document).ready(function () {
+            var offset = 220;
+            var duration = 500;
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > offset) {
+                    $('.back-to-top').fadeIn(duration);
+                } else {
+                    $('.back-to-top').fadeOut(duration);
+                }
+            });
+
+            $('.back-to-top').click(function (event) {
+                event.preventDefault();
+                $('html, body').animate({ scrollTop: 0 }, duration);
+                return false;
+            })
+        });
+        </script>
+</div><!-- end #container -->
+</body>
+<!-- InstanceEnd --></html>
